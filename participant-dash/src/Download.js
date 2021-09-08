@@ -13,7 +13,7 @@ function Download(){
     async function createAllZip(){
             
             const PORT = process.env.PORT || 8081;
-            return fetch(`http://localhost:${PORT}/createzip`, {
+            return fetch('/createzip', {
                 method: 'GET',
                 headers: {
                   'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ function Download(){
 
 
 const handleDownload = async () => {
-  const res = await fetch("http://localhost:8081/downloadzip");
+  const res = await fetch('/downloadzip');
   const blob = await res.blob();
   download(blob, "test");
 }
