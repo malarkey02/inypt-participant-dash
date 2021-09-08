@@ -8,12 +8,12 @@ function Download(){
         2. Render the download all zip button only after the res message from the server is successful
         3. handle the onclick events appropriately
     */ 
+    const PORT = process.env.PORT || 8081;
 
 
     async function createAllZip(){
             
-            const PORT = process.env.PORT || 8081;
-            return fetch('/createzip', {
+            return fetch(`http://localhost:${PORT}/createzip`, {
                 method: 'GET',
                 headers: {
                   'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ function Download(){
 
 
 const handleDownload = async () => {
-  const res = await fetch('/downloadzip');
+  const res = await fetch(`http://localhost:${PORT}/downloadzip`);
   const blob = await res.blob();
   download(blob, "test");
 }
