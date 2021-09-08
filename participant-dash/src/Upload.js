@@ -73,7 +73,7 @@ const [selectedFiles, setSelectedFiles] = useState([])
 
         <Form
 
-          action="http://localhost:8081/upload_file"
+          action="/upload_file"
 
           method="post"
 
