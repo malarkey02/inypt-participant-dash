@@ -24,7 +24,7 @@ const [selectedFiles, setSelectedFiles] = useState([])
 
     const PORT = process.env.PORT || 8081;
 
-    axiosInstance.post('/upload_file', formData, {
+    axiosInstance.post(`https://inypt-participant-dash.herokuapp.com/upload_file`, formData, {
 
       headers: {
 
@@ -73,7 +73,7 @@ const [selectedFiles, setSelectedFiles] = useState([])
 
         <Form
 
-          action="/upload_file"
+          action="https://inypt-participant-dash.herokuapp.com/upload_file"
 
           method="post"
 
