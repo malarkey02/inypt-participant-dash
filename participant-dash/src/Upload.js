@@ -22,7 +22,9 @@ const [selectedFiles, setSelectedFiles] = useState([])
 
     formData.append("file", selectedFiles[0])
 
-    axiosInstance.post("http://localhost:8081/upload_file", formData, {
+    const PORT = process.env.PORT || 8081;
+
+    axiosInstance.post(`http://localhost:${PORT}/upload_file`, formData, {
 
       headers: {
 
