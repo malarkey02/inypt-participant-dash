@@ -159,7 +159,7 @@ app.use(function (err, req, res, next) {
 //Creating .zip file request
 
 async function createZip() {
-  await zipFolder.zip('./uploads', './archive.zip');
+  await zipFolder.zip(`${__dirname}/uploads`, `${__dirname}/archive.zip`);
 }
 
 app.get("/createzip", function(req, res){
