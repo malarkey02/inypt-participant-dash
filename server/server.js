@@ -158,14 +158,16 @@ app.get("/createzip", function(req, res){
 //Handling other get requests that don't match
 
   app.get('*', (req, res) => {
-    // res.sendFile(path.resolve(__dirname, '../participant-dash/build', 'index.html'));
-    res.send("Welcome to InYPT Dev!")
+    res.sendFile(path.resolve(__dirname, '../participant-dash/build', 'index.html'));
+    // res.send("Welcome to InYPT Dev!")
   });
 
 
 //Start the server in port 8081
 
-app.listen(8081, function () {
-  console.log("App started at http://localhost:8081")
+const PORT = process.env.PORT || 8081;
+
+app.listen(PORT, function () {
+  console.log(`App started at http://localhost:${PORT}`)
 
 })
