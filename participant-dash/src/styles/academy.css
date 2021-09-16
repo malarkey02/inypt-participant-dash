@@ -1,0 +1,98 @@
+.academy-navbar{
+    background: #3c6e71;
+    
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 90px;
+
+    text-align: center;
+}
+
+.navbar-logo{
+font-family: Raleway;
+font-style: normal;
+font-weight: normal;
+font-size: 32px;
+line-height: 45px;
+color: #fff;
+
+
+position: absolute;
+top: 50%;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+
+}
+
+.logo-boldening{
+    font-weight: 600;
+}
+
+
+
+.modules-text-heading{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 49px;
+
+    color: #3A3A3A;
+
+    text-shadow: 2px 2px 0px #35969b;
+}
+
+.modules-text-paragraph{
+    font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 22px;
+margin: 20px 0;
+
+}
+
+.module-div{
+    background: #FDFDFD;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+border-radius: 5px;
+padding: 2% 4%;
+margin: 30px 0;
+
+}
+
+.module-div-heading{
+    font-family: Roboto;
+font-style: normal;
+    font-weight: 500;
+font-size: 32px;
+line-height: 42px;
+margin: 0.75rem 0;
+margin-bottom: 1.5rem;
+color: #000000;
+
+}
+
+.lesson-row{
+    position: relative;
+    height: 2.5rem;
+    margin: 5px 0;
+}
+
+.column-lesson{
+    width: 50%;
+    position: absolute;
+    line-height: 30px;
+}
+
+.second-column{
+    left: 50%;
+}
+
+
+.lesson-name{
+    margin-left: 1.5rem;
+}

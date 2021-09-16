@@ -1,9 +1,15 @@
+html{
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 15%;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+
 }
 
 

@@ -1,0 +1,153 @@
+.dashboard-cards-wrapper{
+    width: 70%;
+    height: 60%;
+    margin: auto;
+    position: relative;
+    text-align: center;
+}
+
+.greeting{
+    font-family: Courier New;
+font-style: normal;
+font-weight: normal;
+font-size: 60px;
+line-height: 72px;
+/* identical to box height */
+margin-bottom: 1rem;
+
+}
+
+.dashboard-card{
+    background-color: #353535;
+    color: #F4F4F4;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 0 10px;
+    position: absolute;
+}
+
+
+
+.dashboard-card-title{
+    font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 26px;
+}
+
+.dashboard-card-subtitle{
+font-weight: 300;
+font-size: 14px;
+line-height: 15px;
+letter-spacing: 0.05em;
+font-variant: small-caps;
+margin-bottom: 1rem;
+}
+
+.card-para{
+font-weight: normal;
+font-size: 13px;
+line-height: 16px;
+
+}
+
+.first-row{
+    height: auto;
+}
+
+
+/* Academy Card Specific Styping */
+
+.academy-card-title{
+    width: 50%;
+    margin: 0.75rem 0;
+}
+
+.academy-icon{
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    right: 10%;
+    top: 20%;
+}
+
+.academy-card{
+    width: 45%;
+    height: 5%;
+    padding: 5% 6%;
+    height: 270px;
+    left: 2.5%;
+    text-align: left
+    
+}
+
+/* Upload Card Specific Styles */
+.upload-card{
+    width: 45%;
+    height: 270px;
+    padding: 5% 6%;
+    text-align: center;
+    right: 2.5%;
+
+    
+}
+
+.upload-icon{
+    margin: 7% 0;
+    margin-top: 10%;
+}
+
+/* Resources Card Specific Styles */
+.resources-card-title{
+    width: 50%;
+    margin: 1rem 0;
+}
+
+.resources-icon{
+    position: absolute;
+    
+    height: 30%;
+    right: 10%;
+    top: 20%;
+    text-align: center;
+
+}
+
+.readme-text{
+    margin-top: 10px;
+    font-family: Courier New;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.resources-card{
+    width: 60%;
+    margin: 20px 10px;
+    padding: 2% 6%;
+    left: 2.5%;
+    top: 360px;
+    /* height of the top card plus 10px gap */
+    text-align: left
+}
+
+.resources-para{
+    width: 80%;
+}
+
+/* 
+Flash Cards */
+.flash-card{
+    width: 30%;
+    margin: 20px 10px;
+    padding: 2% 6%;
+    text-align: center;
+    right: 2.5%;
+    top: 360px
+}
+
+.flash-card-title{
+    font-size: 22px;
+    margin-top: 19%;
+    
+}

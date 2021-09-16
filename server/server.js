@@ -90,9 +90,17 @@ const fileSchema = new mongoose.Schema({
   },
 });
 
+const submissionSchema = new mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  projectLink: String,
+  email: String
+
+})
+
 // Creating a Model from that Schema
 const File = mongoose.model("File", fileSchema);
-
+const Submission = mongoose.model("Submission", submissionSchema);
 
 //File Upload route
 app.post("/upload_file", upload.single("file"), function (req, res) {
