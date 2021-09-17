@@ -2,11 +2,12 @@ import "../styles/dashboard.css"
 import iconAcademy from "../image-assets/Learning.svg"
 import iconUpload from "../image-assets/Upload.svg"
 import iconDocument from "../image-assets/Document.svg"
+import { useHistory } from 'react-router-dom';
 
 function Dashboard(){
     //single line js code to change the BG when rendering a react component
-    document.body.style = 'background: #d9d9d9; padding: 5% 15%;';
-    
+    document.body.style = 'background: #d9d9d9; padding: 2.5% 15%;';
+    const history = useHistory();
 
     return(
         
@@ -21,7 +22,7 @@ function Dashboard(){
                 
 
                 
-                    <div className="dashboard-card academy-card">
+                    <div className="dashboard-card academy-card" onClick={()=>{history.push('/academy')}}>
                         <h2 className="academy-card-title dashboard-card-title" >
                             InYPT Academy
                         </h2>
@@ -41,7 +42,7 @@ function Dashboard(){
                     </div>
                     {/* end of academy card */}
 
-                    <div className="dashboard-card upload-card">
+                    <div className="dashboard-card upload-card"  onClick={()=>{history.push('/upload')}}>
                         <div className="upload-icon">
                             <img src ={iconUpload} alt=''>
 

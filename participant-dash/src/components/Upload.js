@@ -1,12 +1,16 @@
 import React, {useState} from "react";
 import axiosInstance from "../axios";
 import { Container, Row, Col, Form, Button, ProgressBar, Alert } from "react-bootstrap"
+import Modal from 'react-bootstrap/Modal'
+import { useHistory } from 'react-router-dom';
+
+import backBlack from "../image-assets/Backblack.svg"
 
 import "../styles/upload.css"
 
 function Upload(){
 
-
+  const history = useHistory();
 
 const [selectedFiles, setSelectedFiles] = useState([])
 
@@ -15,6 +19,7 @@ const [selectedFiles, setSelectedFiles] = useState([])
   const [error, setError] = useState()
 
   const [fileSelect, setFileSelect] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   const [divHeight, setDivHeight] = useState();
 
@@ -22,14 +27,50 @@ const [selectedFiles, setSelectedFiles] = useState([])
 
     e.preventDefault() //prevent the form from submitting
 
-    let formData = new FormData()
-
-    formData.append("file", selectedFiles[0])
-
     
+
+
+ 
 
     const PORT = process.env.PORT || 8081;
 
+    let email = document.getElementById("email").value;
+    let fName = document.getElementById("firstName").value;
+    let lName = document.getElementById("lastName").value;
+    let projectLink = document.getElementById("projectLink").value;
+
+    let textData = {
+      firstName: fName, 
+      lastName: lName, 
+      projectLink: projectLink,
+      email: email
+    }
+
+    console.log(textData)
+    
+
+    fetch('http://localhost:8081/submission', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(textData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      setError("Sorry! Something went wrong. Please try again later")
+    });
+
+    let formData = new FormData()
+
+    formData.append("file", selectedFiles[0])
+ 
+    //CHANGE WHEN PUSHING https://inypt-participant-dash.herokuapp.com/upload_file
+  
     axiosInstance.post(`https://inypt-participant-dash.herokuapp.com/upload_file`, formData, {
 
       headers: {
@@ -46,15 +87,32 @@ const [selectedFiles, setSelectedFiles] = useState([])
 
       },
 
+    
+    }).then(function (response) {
+
+      if(response.status==200){
+        setModalShow(true);
+      }
+
+      
+      
     }).catch(error => {
 
       const { code } = error?.response?.data
+
+      
 
       switch (code) {
 
         case "FILE_MISSING":
 
           setError("Please select a file before uploading!")
+          setProgress(null);
+          setModalShow(false);
+
+          setTimeout(()=>{
+            setError(null)
+          }, 2000)
 
           break
 
@@ -72,44 +130,92 @@ const [selectedFiles, setSelectedFiles] = useState([])
 
   
 
-  const handleStringSubmit = e => {
-      e.preventDefault();
-      
-      console.log("This baby can submit 2 things")
-  }
 
-  function submitTextForm(){
-      let textForm = document.getElementById('text-form');
-      textForm.submit(e =>{ 
-        e.preventDefault();
-      });
-      
-  }
+//   const handleStringSubmit  = (e) => {
+    
+//     alert("It works!")
+//     e.preventDefault();
+//     // let formDataText = new FormData()
+    
+//     // formDataText.append("firstName", "lastName", "projectLink", "email")
 
+//     // console.log(formDataText)
+//     let emailText = document.getElementById("email").value;
+//     console.log(emailText);
 
-  if(progress==100){
-    console.log("We can trigger events when it completes uploading")
+//     axiosInstance({
+//       method: "post",
+//       url: "http://localhost:8081/submission",
+//       body: {email: emailText},
+//       headers: { "Content-Type": "multipart/form-data" },
+//     })
+//       .then(function (response) {
+//         //handle success
+//         console.log(response);
+//       })
+//       .catch(function (response) {
+//         //handle error
+//         console.log(response);
+//       });
+    
+//     console.log("This baby can submit 2 things")
+// }
+
+  if(progress===100){
+      setTimeout(()=>{
+                
+          setProgress(null)
+        
+      }, 700)    
 
   }
 
   document.body.style= 'padding: 5% 15%; background: #d9d9d9;'
-  // let height = document.querySelector(".project-submission-part").offsetHeight;
 
-  console.log();
+ 
 
   return(
     <div className="wrapper">
+      <span className="navbar-back-upload" onClick={()=>{history.push('/')}}><img src={backBlack} alt=''></img></span>
        <div className="project-submission-part">
 
         <h1 className="project-submission-title"> Project Submission </h1>
       
-        <Form 
-               action="/"
-
+        {/* <form  id="text-form"
+               action="http://localhost:8081/submission"
+               encType="multipart/form-data"
                method="post"
-              onSubmit={handleStringSubmit} id="text-form">
+              onSubmit={handleStringSubmit} >
 
-              <Row>
+              
+              <input  type="submit" value="Submit Text" onClick={submitForms}  className="submit-btn"></input>
+        </form> */}
+
+    
+
+    <Row>
+      
+                
+    <Col>
+        <Form
+
+          action="https://inypt-participant-dash.herokuapp.com/upload_file"
+
+          method="post"
+
+          encType="multipart/form-data"
+
+          id="file-form"
+
+          onSubmit={submitHandler}
+
+        >
+          
+          
+          
+          <Form.Group>
+
+          <Row>
                 <Col>
                   <label className="text-input-label" htmlFor="firstname">First Name</label>
                   <input type="text" className="text-input-half" name="firstName" id="firstName" required></input>
@@ -131,30 +237,6 @@ const [selectedFiles, setSelectedFiles] = useState([])
                 </Col>
       
               </Row>
-
-        </Form>
-
-    
-
-    <Row>
-      
-                
-    <Col>
-        <Form
-
-          action="https://inypt-participant-dash.herokuapp.com/upload_file"
-
-          method="post"
-
-          encType="multipart/form-data"
-
-          onSubmit={submitHandler}
-
-        >
-          
-          
-          
-          <Form.Group>
             
               <label htmlFor="exampleFormControlFile1" className="custom-file-upload-btn">
                 Browse...
@@ -186,7 +268,7 @@ const [selectedFiles, setSelectedFiles] = useState([])
           <Form.Group>
             
 
-            <input variant="info" type="submit" value="Submit" onClick={submitTextForm}  className="submit-btn"></input>
+            <input  type="submit" value="Submit"   className="submit-btn"></input>
 
           </Form.Group>
 
@@ -234,7 +316,10 @@ const [selectedFiles, setSelectedFiles] = useState([])
             
             *Project link is recommended not required. Files edited after submission will result in elimination.
             </ol> 
-               
+            <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
 
     </div>
   </div>
@@ -243,3 +328,29 @@ const [selectedFiles, setSelectedFiles] = useState([])
 }
 
 export default Upload 
+
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          We have your Submission!
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+       
+        <p>
+          Congratulations on all that hardwork. We're sure you've done well. 
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Back to Dashboard</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}

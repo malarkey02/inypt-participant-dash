@@ -104,6 +104,7 @@ const Submission = mongoose.model("Submission", submissionSchema);
 
 //File Upload route
 app.post("/upload_file", upload.single("file"), function (req, res) {
+ 
 
   if (!req.file) {
 
@@ -118,7 +119,7 @@ app.post("/upload_file", upload.single("file"), function (req, res) {
       name: req.file.filename,
     });
     newFile.save();
-    res.send({ status: "success" })
+    res.send({ status: "file-saved" })
 
   }
 
@@ -173,7 +174,7 @@ async function createZip() {
 app.get("/createzip", function(req, res){
   createZip().then(()=>{
     res.send({
-      status: "complete"
+      status: "zip-created"
     })
   });
 
@@ -187,9 +188,20 @@ app.get("/createzip", function(req, res){
     })
 //Handling other get requests that don't match
 
+  app.use("/submission", function(req, res){
+    console.log("request received")
+    const newSubmission = new Submission(req.body);
+    newSubmission.save();
+
+    res.send({
+      status: 'submission-saved'
+    })
+    
+  })
+
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../participant-dash/build', 'index.html'));
-    // res.send("Welcome to InYPT Dev!")
+    // res.sendFile(path.resolve(__dirname, '../participant-dash/build', 'index.html'));
+    res.send("Welcome to InYPT Dev!")
   });
 
 
