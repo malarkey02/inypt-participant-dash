@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import axiosInstance from "../axios";
-import { Container, Row, Col, Form, Button, ProgressBar, Alert } from "react-bootstrap"
+import { Row, Col, Form, Button, ProgressBar, Alert } from "react-bootstrap"
 import Modal from 'react-bootstrap/Modal'
 import { useHistory } from 'react-router-dom';
 
@@ -21,7 +21,7 @@ const [selectedFiles, setSelectedFiles] = useState([])
   const [fileSelect, setFileSelect] = useState(false);
   const [modalShow, setModalShow] = useState(false);
 
-  const [divHeight, setDivHeight] = useState();
+
 
   const submitHandler = e => {
 
@@ -32,7 +32,7 @@ const [selectedFiles, setSelectedFiles] = useState([])
 
  
 
-    const PORT = process.env.PORT || 8081;
+    // const PORT = process.env.PORT || 8081;
 
     let email = document.getElementById("email").value;
     let fName = document.getElementById("firstName").value;
@@ -90,7 +90,7 @@ const [selectedFiles, setSelectedFiles] = useState([])
     
     }).then(function (response) {
 
-      if(response.status==200){
+      if(response.status===200){
         setModalShow(true);
       }
 
@@ -303,13 +303,13 @@ const [selectedFiles, setSelectedFiles] = useState([])
 
             <p className="guideline-instruction-titles">Keeping it within 40MB</p>
             <ul className="guideline-instruction-text">  
-              <li> Check if all videos embedded in your presentation are <a style={{color: '#fff'}} target="_blank" href="https://www.uscreen.tv/blog/5-ways-to-make-video-files-smaller/">compressed.</a>  </li>
-              <li>Save your file at an <a style={{color: '#fff'}} target="_blank" href="https://support.microsoft.com/en-us/office/reduce-the-file-size-of-your-powerpoint-presentations-9548ffd4-d853-41e7-8e40-b606bca036b4"> optimised setting. </a> </li>
+              <li> Check if all videos embedded in your presentation are <a style={{color: '#fff'}} target="_blank" rel="noreferrer" href="https://www.uscreen.tv/blog/5-ways-to-make-video-files-smaller/">compressed.</a>  </li>
+              <li>Save your file at an <a style={{color: '#fff'}} target="_blank" rel="noreferrer" href="https://support.microsoft.com/en-us/office/reduce-the-file-size-of-your-powerpoint-presentations-9548ffd4-d853-41e7-8e40-b606bca036b4"> optimised setting. </a> </li>
                </ul> 
 
             <p className="guideline-instruction-titles">If you’re unable to reach file limit...</p>
             <ol className="guideline-instruction-text"> 
-              <li> Save the presentation as a pdf and <a style={{color: '#fff'}} target="_blank" href="https://smallpdf.com/compress-pdf"> compress </a> if required and submit here.  </li>
+              <li> Save the presentation as a pdf and <a style={{color: '#fff'}} target="_blank" rel="noreferrer" href="https://smallpdf.com/compress-pdf"> compress </a> if required and submit here.  </li>
               <li>Upload your original presentation to your personal cloud drive (Google preferrably).</li>
               <li>Share the file with <strong>inypt@gmail.com with edit privileges.</strong>  </li>
               <li>Copy the share link and paste it in the <strong>‘Project Link’</strong> section of the form.</li>

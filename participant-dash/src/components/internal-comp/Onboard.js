@@ -1,4 +1,3 @@
-import {useState} from "react"
 import "../../styles/onboarding.css";
 import NavigateLink from "./Navlink";
 import { useHistory } from 'react-router-dom';
@@ -18,24 +17,27 @@ function Onboard() {
   const pathname = window.location.pathname;
   const lessonNum = pathname.substring((pathname.lastIndexOf('n')+1), pathname.length);
 
-  let lessonURL = "https://www.youtube.com/embed/oHdliuRaP04?rel=0;&autoplay=1"
+  let lessonURL = "https://www.youtube.com/embed/4xcVwTahfuI?rel=0;&autoplay=1"
   
   switch(lessonNum){
     case '1': 
-    lessonURL = 'https://www.youtube.com/embed/oHdliuRaP04?rel=0;&autoplay=1'
+    lessonURL = 'https://www.youtube.com/embed/4xcVwTahfuI?rel=0;&autoplay=1'
     break;
 
     case '2': 
-    lessonURL = 'https://www.youtube.com/embed/ZnZqB5Z75zI?rel=0;&autoplay=1'
+    lessonURL = 'https://www.youtube.com/embed/-U4kbNHzoz8?rel=0;&autoplay=1'
     break;
 
     case '3': 
-    lessonURL = 'https://www.youtube.com/embed/1pO9vtX-wNQ?rel=0;&autoplay=1'
+    lessonURL = 'https://www.youtube.com/embed/eWYiTwlQ2rM?rel=0;&autoplay=1'
     break;
 
     case '4': 
-    lessonURL = 'https://www.youtube.com/embed/ZU8Kev2oxwM?rel=0;&autoplay=1'
+    lessonURL = 'https://www.youtube.com/embed/K4Myp4ZOhjk?rel=0;&autoplay=1'
     break;
+
+    default: 
+    lessonURL = 'https://www.youtube.com/embed/4xcVwTahfuI?rel=0;&autoplay=1'
   }
 
 
@@ -71,26 +73,26 @@ function Onboard() {
         {/* show list of links... here*/}
         <NavigateLink
           description="The World of IYPT"
-          duration="6 mins"
-          src="https://www.youtube.com/embed/oHdliuRaP04?rel=0;&autoplay=1"
+          duration="3 mins"
+          src="https://www.youtube.com/embed/4xcVwTahfuI?rel=0;&autoplay=1"
         />
 
         <NavigateLink
           description="Physics Fight - Formats"
-          duration="6 mins"
-          src="https://www.youtube.com/embed/ZnZqB5Z75zI?rel=0;&autoplay=1"
+          duration="3 mins"
+          src="https://www.youtube.com/embed/-U4kbNHzoz8?rel=0;&autoplay=1"
         />
 
         <NavigateLink
           description="Presenting a solution - Reporting"
-          duration="6 mins"
-          src="https://www.youtube.com/embed/1pO9vtX-wNQ?rel=0;&autoplay=1"
+          duration="4 mins"
+          src="https://www.youtube.com/embed/eWYiTwlQ2rM?rel=0;&autoplay=1"
         />
 
         <NavigateLink
           description="Critiquing a solution - Opposition"
-          duration="6 mins"
-          src="https://www.youtube.com/embed/ZU8Kev2oxwM?rel=0;&autoplay=1"
+          duration="5 mins"
+          src="https://www.youtube.com/embed/K4Myp4ZOhjk?rel=0;&autoplay=1"
         />
         {/* "description" and "duration" values from YT api i think */}
       </div>

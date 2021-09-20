@@ -6,17 +6,46 @@ import Academy from "./components/Academy.js";
 import Onboard from "./components/internal-comp/Onboard.js"
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import Login from "./components/login/Login";
+import ForgotPass from "./components/login/ForgotPass.js";
+import useToken from "./components/login/useToken";
+import Register from "./components/login/Register"
+
+
 
 function App() {
 
-  
+  const { token, setToken } = useToken();
+
+  if (!token) {
+    return (
+    <BrowserRouter>
+      <Switch>
+      <Route path="/register">
+        <div className="center-align">
+        <Register />
+        </div>
+      </Route>
+        
+      <Route path="/forgot-password">
+       <ForgotPass setToken={setToken} />
+      </Route>
+      <Route path="/">
+       <Login setToken={setToken} />
+      </Route>
+
+    
+    </Switch>
+  </BrowserRouter>
+    );
+  }
 
   return (
     
       <BrowserRouter>
         <Switch>
 
-        <Route path="/download">
+        <Route path="/super-admin-pass:smartpranav123">
             <Download />
           </Route>
           <Route path="/academy">
@@ -30,8 +59,12 @@ function App() {
             <Onboard />
           </Route>
           
+          <Route path="/register">
+            <Register />
+          </Route>
+
           <Route path="/">
-            <Dashboard />
+            <Dashboard username={token} />
           </Route>
 
           

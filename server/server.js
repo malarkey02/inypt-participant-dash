@@ -15,6 +15,7 @@ require('dotenv').config()
 const app = express()
 
 
+
 //MIDDLEWARE
 
 const whitelist = ["http://localhost:3000"]
@@ -78,6 +79,21 @@ const DB = 'mongodb+srv://admin-harsh:' + process.env.DB_PASS + '@cluster0.8y5it
 mongoose.connect('mongodb+srv://admin-harsh:7hoPUeNHT2b42upX@cluster0.8y5it.mongodb.net/test-uploads?retryWrites=true&w=majority');
 
 //mongoSchema for adding file name only
+
+// const newUserSchema = new mongoose.Schema ({
+//   firstName: String,
+//   lastNameL: String, 
+//   school: String,
+//   grade: Number, 
+//   board: String, 
+//   city: String, 
+//   phone: String, 
+
+//   email: String, 
+//   password: String, 
+//   securityQuestion: String,
+//   securityAnswer: String
+// })
 
 const fileSchema = new mongoose.Schema({
   createdAt: {
@@ -189,7 +205,7 @@ app.get("/createzip", function(req, res){
 //Handling other get requests that don't match
 
   app.use("/submission", function(req, res){
-    console.log("request received")
+    
     const newSubmission = new Submission(req.body);
     newSubmission.save();
 
@@ -199,10 +215,22 @@ app.get("/createzip", function(req, res){
     
   })
 
-  app.get('*', (req, res) => {
-    // res.sendFile(path.resolve(__dirname, '../participant-dash/build', 'index.html'));
-    res.send("Welcome to InYPT Dev!")
-  });
+
+
+//handling auth - signing up users, signing them in, etc
+
+
+const user = require('./route/user');
+  
+// Use user route when url matches /api/user/
+app.use('/api/user', user);
+
+app.get('*', (req, res) => {
+  // res.sendFile(path.resolve(__dirname, '../participant-dash/build', 'index.html'));
+  res.send("Welcome to InYPT Dev!")
+  
+});
+
 
 
 //Start the server in port 8081

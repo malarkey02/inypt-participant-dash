@@ -1,9 +1,10 @@
 import "../../styles/onboard-nav-links.css";
-import {useState} from "react";
+// import {useState} from "react";
+import tinyPlayButton from "../../image-assets/PlayButtonTiny.svg"
 
 function NavigateLink(props) {
 
-  const[visited, setVisited] = useState(false);
+  // const[visited, setVisited] = useState(false);
 
   return (
     <div className="link-container">
@@ -11,7 +12,7 @@ function NavigateLink(props) {
       <div className="column-wrap">
        {/* <span className="checkbox"> <input type="checkbox" name="" id="" /> </span> */}
        <span className="span-for-desc">
-            <a className="desc" onClick={()=>{setVisited(true)}} href={props.src} target="onboarding-video">
+            <a className="desc" href={props.src} target="onboarding-video">
             {props.description}
             </a>
         </span>
@@ -20,7 +21,7 @@ function NavigateLink(props) {
         
       </div>
       <div className="duration">
-            <img src="" />
+            <img src={tinyPlayButton} alt='' />
             {props.duration}
           </div>
     </div>

@@ -1,0 +1,111 @@
+.registration-form-sheet{
+    background: #FFFFFF;
+border: 2px solid #2A2B2A;
+box-sizing: border-box;
+box-shadow: 10px 10px 0px #2A2B2A;  
+width: 93%;
+margin: 5% auto;
+}
+
+.registration-title-container{
+    background: #FFE1C6;
+    padding: 5% 10%;
+}
+
+.registration-title{
+    font-family: Major Mono Display;
+font-style: normal;
+font-weight: normal;
+font-size: 64px;
+line-height: 140%;
+
+
+text-transform: capitalize;
+
+color: #fff0d4;
+-webkit-text-stroke: 1px #2c2424;
+
+text-shadow: 2px 2px 2px #E70F0F;
+
+}
+
+.registration-subtitle{
+    font-family: Major Mono Display;
+    -webkit-text-stroke: 1px #332525;
+font-style: normal;
+font-weight: normal;
+font-size: 28px;
+line-height: 24px;
+margin-top: 3rem;
+}
+
+.form-wrapper{
+    width: 80%;
+    margin: 2% auto;
+    margin-bottom: 7%;
+}
+
+.registration-input-label{
+    font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 26px;
+line-height: 30px;
+text-transform: capitalize;
+margin-top: 2.5rem;
+
+color: #616161;
+}
+
+.registration-input{
+    display: block;
+margin-top: 1rem;
+    
+width: 80%;
+height: 3.75rem;
+
+background: #F3F3F3;
+border: 3px solid rgba(69, 69, 69, 0.8);
+box-sizing: border-box;
+}
+
+.registration-submit-btn{
+    background: #FFFFFF;
+border: 1px solid #000000;
+box-sizing: border-box;
+box-shadow: 5px 5px 0px #FF7A00;
+font-family: Major Mono Display;
+padding: 10px 20px;
+font-weight: normal;
+font-size: 24px;
+display: block;
+margin-top: 5%;
+
+transition: all 0.3s ease 0s;
+}
+
+.registration-submit-btn:hover{
+    background: #000000;
+    color: #FF7A00;
+    -webkit-text-stroke: 0.1px #ffffff;
+}
+
+.acknowledgements{
+    margin-top: 2.5rem;
+    position: relative;
+}
+
+.acknowledgement-label{
+    width: 90%;
+    margin: 0 30px;
+    font-size: 13px;
+    font-family: 'Arial';
+
+}
+
+#achnowledgement{
+    position: absolute;
+    background: #FFFFFF;
+border: 1px solid #000000;
+    top:5px
+}

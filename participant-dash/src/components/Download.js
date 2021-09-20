@@ -8,7 +8,7 @@ function Download(){
         2. Render the download all zip button only after the res message from the server is successful
         3. handle the onclick events appropriately
     */ 
-    const PORT = process.env.PORT || 8081;
+    // const PORT = process.env.PORT || 8081;
 
 
     async function createAllZip(){

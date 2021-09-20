@@ -1,19 +1,19 @@
 import "../styles/dashboard.css"
 import iconAcademy from "../image-assets/Learning.svg"
 import iconUpload from "../image-assets/Upload.svg"
-import iconDocument from "../image-assets/Document.svg"
+// import iconDocument from "../image-assets/Document.svg"
 import { useHistory } from 'react-router-dom';
 
-function Dashboard(){
+function Dashboard({username}){
     //single line js code to change the BG when rendering a react component
-    document.body.style = 'background: #d9d9d9; padding: 2.5% 15%;';
+    document.body.style = 'background: #d9d9d9; padding: 8% 15%;';
     const history = useHistory();
-
+    
     return(
         
         <div className="dashboard-cards-wrapper" >
             <h2 className="greeting"> 
-            Welcome, <strong> Daniel </strong>
+            Welcome, <strong> {username} </strong>
             </h2>
 
 
@@ -58,7 +58,7 @@ function Dashboard(){
                 
                 
 
-            <div className="dashboard-card resources-card">
+            {/* <div className="dashboard-card resources-card">
                 <h2 className="resources-card-title dashboard-card-title" >
                     IYPT Problems
                 </h2> 
@@ -89,7 +89,7 @@ function Dashboard(){
                 </p>
 
 
-            </div>
+            </div> */}
 
         </div>
 
