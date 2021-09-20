@@ -49,7 +49,7 @@ const [selectedFiles, setSelectedFiles] = useState([])
     console.log(textData)
     
 
-    fetch('http://localhost:8081/submission', {
+    fetch('https://inypt-participant-dash.herokuapp.com/submission', {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',

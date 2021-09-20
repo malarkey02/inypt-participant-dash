@@ -76,7 +76,7 @@ const upload = multer({
 
 const DB = 'mongodb+srv://admin-harsh:' + process.env.DB_PASS + '@cluster0.8y5it.mongodb.net/test-uploads?retryWrites=true&w=majority';
 
-mongoose.connect('mongodb+srv://admin-harsh:7hoPUeNHT2b42upX@cluster0.8y5it.mongodb.net/test-uploads?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://admin-harsh:7hoPUeNHT2b42upX@cluster0.8y5it.mongodb.net/inypt-portal?retryWrites=true&w=majority');
 
 //mongoSchema for adding file name only
 
@@ -226,8 +226,8 @@ const user = require('./route/user');
 app.use('/api/user', user);
 
 app.get('*', (req, res) => {
-  // res.sendFile(path.resolve(__dirname, '../participant-dash/build', 'index.html'));
-  res.send("Welcome to InYPT Dev!")
+  res.sendFile(path.resolve(__dirname, '../participant-dash/build', 'index.html'));
+  // res.send("Welcome to InYPT Dev!")
   
 });
 

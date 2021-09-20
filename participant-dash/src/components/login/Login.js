@@ -14,7 +14,7 @@ function Login ({setToken}){
 
 
     async function loginUser(credentials){
-        return fetch ('http://localhost:8081/api/user/login', {
+        return fetch ('https://inypt-participant-dash.herokuapp.com/api/user/login', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json' 

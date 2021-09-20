@@ -17,7 +17,7 @@ function ForgotPass ({setToken}){
 
 
     async function loginUser(credentials){
-        return fetch ('http://localhost:8081/api/user/login/security-question', {
+        return fetch ('https://inypt-participant-dash.herokuapp.com/api/user/login/security-question', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json' 
@@ -39,7 +39,7 @@ function ForgotPass ({setToken}){
         }
 
         const fetchQuestion = async () =>{
-            fetch ('http://localhost:8081/api/user/fetch-security-question', {
+            fetch ('https://inypt-participant-dash.herokuapp.com/api/user/fetch-security-question', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json' 

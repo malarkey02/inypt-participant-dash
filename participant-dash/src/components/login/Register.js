@@ -53,7 +53,7 @@ function Register(){
             securityAnswer: securityAnswer
         } 
 
-        fetch ('http://localhost:8081/api/user/signup', {
+        fetch ('https://inypt-participant-dash.herokuapp.com/api/user/signup', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json' 
